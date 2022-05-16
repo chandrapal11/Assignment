@@ -1,0 +1,8 @@
+select lower(table_name) Table_name,lower(column_name) Column_name,
+case when lower(category) is null then "Unknown"
+     when lower(category) = '' then "Unknown" 
+	 else lower(category) 
+	 end Category 
+from tab1,tab2 where lower(tab1.data_type) like lower(tab2.data_type) 
+or 
+locate(lower(tab1.data_type),lower(tab2.data_type));
